@@ -30,11 +30,11 @@
         "cobertura_pct": null
       },
       "checklist": [
-        { "item": "Estructura de directorios completa creada", "completado": false },
-        { "item": "Archivo .env.example creado con puertos, límites y rutas", "completado": false },
-        { "item": "docker-compose.yml creado con servicios backend, frontend y nodeodm", "completado": false },
-        { "item": "backend/Dockerfile y frontend/Dockerfile creados", "completado": false },
-        { "item": "FastAPI inicializado en backend/app/main.py con /health", "completado": false },
+        { "item": "Estructura de directorios completa creada", "completado": true },
+        { "item": "Archivo .env.example creado con puertos, límites y rutas", "completado": true },
+        { "item": "docker-compose.yml creado con servicios backend, frontend y nodeodm", "completado": true },
+        { "item": "backend/Dockerfile y frontend/Dockerfile creados", "completado": true },
+        { "item": "FastAPI inicializado en backend/app/main.py con /health", "completado": true },
         { "item": "docker-compose up levanta los 3 servicios sin errores", "completado": false }
       ]
     },
