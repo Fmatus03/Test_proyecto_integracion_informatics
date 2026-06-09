@@ -10,7 +10,7 @@ services:
       - ./data:/data
     environment:
       - BACKEND_PORT=${BACKEND_PORT:-8000}
-      - NODEODM_PORT=${NODEODM_PORT:-3001}
+      - NODEODM_PORT=3000
       - MIN_IMAGES=${MIN_IMAGES:-10}
       - MAX_IMAGES=${MAX_IMAGES:-50}
       - MAX_IMAGE_SIZE_MB=${MAX_IMAGE_SIZE_MB:-20}
