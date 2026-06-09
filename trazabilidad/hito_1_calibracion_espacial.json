@@ -1,0 +1,48 @@
+{
+  "hito": {
+    "id": "hito_1",
+    "nombre": "Calibración Espacial",
+    "sprint": "Sprint 2",
+    "fecha_objetivo": "TBD",
+    "criterio_exito": "Calibración automática mediante detección OpenCV con confianza >= 0.90, o fallback a calibración manual. Error de escala objetivo <= 5%.",
+    "estado": "pendiente"
+  },
+  "etapas": [
+    {
+      "etapa_id": "hito_1_etapa_1",
+      "nombre": "Servicio de Calibración Espacial y Detección de Guía",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "backend/app/api/routes/calibration.py",
+        "backend/app/services/calibration_service.py",
+        "backend/tests/unit/test_calibration_service.py"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "calibration_service.py implementado con OpenCV y detección de contornos", "completado": false },
+        { "item": "Cálculo de px/cm y transformación homográfica implementados", "completado": false },
+        { "item": "Detección ArUco (ID 0) opcional implementada", "completado": false },
+        { "item": "Fallback de escala manual configurable implementado", "completado": false },
+        { "item": "Endpoint POST /api/calibrate/{session_id} implementado", "completado": false },
+        { "item": "Tests unitarios test_calibration_service.py pasando con métricas de cobertura", "completado": false }
+      ]
+    }
+  ],
+  "resumen_hito": {
+    "etapas_totales": 1,
+    "etapas_completadas": 0,
+    "porcentaje_avance": 0,
+    "bloqueantes": [],
+    "proxima_etapa": "hito_1_etapa_1 — Servicio de Calibración Espacial y Detección de Guía"
+  }
+}

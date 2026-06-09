@@ -1,0 +1,52 @@
+{
+  "cycle_id": "CYCLE-FORESTVOL-MVP-001",
+  "trace_id": "TRACE-001",
+  "project_id": "forestvol-mvp",
+  "status": "running",
+  "objective": "Implementar el MVP completo de ForestVol v5.1: pipeline carga→calibración→SfM/MVS→malla→volumen.",
+  "product_expected": "Sistema ForestVol ejecutable con docker-compose up, pipeline end-to-end funcional y trazabilidad completa.",
+  "current_phase": "plan_cycle",
+  "current_fase": "DEV_PHASE_1_INFRA",
+  "stack": {
+    "backend": "Python3.11/FastAPI",
+    "calibration": "OpenCV4.9+",
+    "sfm": "NodeODM",
+    "geometry": "Open3D0.18+",
+    "frontend": "Vue.js3/Three.js",
+    "infra": "Docker/DockerCompose"
+  },
+  "hitos": {
+    "hito_0": "pendiente",
+    "hito_1": "pendiente",
+    "hito_0_5": "pendiente",
+    "hito_2": "pendiente",
+    "hito_3": "pendiente"
+  },
+  "gates": {
+    "spec_exists": "pending",
+    "plan_valid": "pending",
+    "tasks_atomic": "pending",
+    "analyze_approved": "pending",
+    "validation": "pending",
+    "budget": "pending"
+  },
+  "artifacts": {
+    "spec": "specs/forestvol-mvp/spec.md",
+    "plan": "specs/forestvol-mvp/plan.md",
+    "tasks": "specs/forestvol-mvp/tasks.md",
+    "analyze": "specs/forestvol-mvp/analyze-report.md",
+    "traceability": "specs/forestvol-mvp/traceability-matrix.md",
+    "validation": "specs/forestvol-mvp/validation-report.md"
+  },
+  "usage": {
+    "input_tokens": 0,
+    "cached_input_tokens": 0,
+    "output_tokens": 0,
+    "tool_calls": 0,
+    "estimated_cost": 0
+  },
+  "decisions": [],
+  "risks": [],
+  "last_block_reason": null,
+  "missing_info": []
+}

@@ -1,0 +1,50 @@
+{
+  "hito": {
+    "id": "hito_2",
+    "nombre": "Volumetría Funcional y Exportación",
+    "sprint": "Sprint 4",
+    "fecha_objetivo": "TBD",
+    "criterio_exito": "Algoritmo volumétrico calculando sobre mallas watertight en m³, cálculo de dimensiones de bounding box, endpoints de exportación JSON/CSV listos, y pipeline de integración probado.",
+    "estado": "pendiente"
+  },
+  "etapas": [
+    {
+      "etapa_id": "hito_2_etapa_1",
+      "nombre": "Cálculo de Volumen y Exportación de Reportes",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "backend/app/api/routes/volume.py",
+        "backend/app/services/volume_service.py",
+        "backend/tests/unit/test_volume_service.py",
+        "backend/tests/integration/test_pipeline.py"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "volume_service.py implementado usando TriangleMesh.get_volume() de Open3D", "completado": false },
+        { "item": "Cálculo de bounding box (largo, ancho, alto en metros) implementado", "completado": false },
+        { "item": "Endpoint GET /api/results/{session_id} implementado con estado e inputs/results/gt", "completado": false },
+        { "item": "Endpoints de exportación GET /api/export/{session_id}/json y /csv implementados", "completado": false },
+        { "item": "Tests unitarios test_volume_service.py pasando", "completado": false },
+        { "item": "Tests de integración test_pipeline.py pasando en flujo completo mockeado", "completado": false },
+        { "item": "Matriz de trazabilidad specs/forestvol-mvp/traceability-matrix.md creada", "completado": false }
+      ]
+    }
+  ],
+  "resumen_hito": {
+    "etapas_totales": 1,
+    "etapas_completadas": 0,
+    "porcentaje_avance": 0,
+    "bloqueantes": [],
+    "proxima_etapa": "hito_2_etapa_1 — Cálculo de Volumen y Exportación de Reportes"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "hito": {
+    "id": "hito_0",
+    "nombre": "Validación Técnica Inicial",
+    "sprint": "Sprint 1",
+    "fecha_objetivo": "TBD",
+    "criterio_exito": "Docker Compose base configurado, API FastAPI inicializada con /health, y NodeODM accesible y respondiendo en el puerto 3001.",
+    "estado": "pendiente"
+  },
+  "etapas": [
+    {
+      "etapa_id": "hito_0_etapa_1",
+      "nombre": "Configuración Docker Compose base",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "docker-compose.yml",
+        "backend/Dockerfile",
+        "frontend/Dockerfile",
+        ".env.example"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "Estructura de directorios completa creada", "completado": false },
+        { "item": "Archivo .env.example creado con puertos, límites y rutas", "completado": false },
+        { "item": "docker-compose.yml creado con servicios backend, frontend y nodeodm", "completado": false },
+        { "item": "backend/Dockerfile y frontend/Dockerfile creados", "completado": false },
+        { "item": "FastAPI inicializado en backend/app/main.py con /health", "completado": false },
+        { "item": "docker-compose up levanta los 3 servicios sin errores", "completado": false }
+      ]
+    },
+    {
+      "etapa_id": "hito_0_etapa_2",
+      "nombre": "Pipeline de carga de imágenes",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "backend/app/api/routes/upload.py",
+        "backend/app/services/image_validator.py",
+        "backend/app/models/schemas.py"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "image_validator.py implementado (valida extensión, MIME, tamaño y cantidad)", "completado": false },
+        { "item": "schemas.py implementado con modelos Pydantic v2", "completado": false },
+        { "item": "Endpoint POST /api/upload implementado en upload.py", "completado": false },
+        { "item": "Almacenamiento de imágenes estructurado bajo data/uploads/", "completado": false },
+        { "item": "Tests unitarios test_image_validator.py pasando", "completado": false }
+      ]
+    },
+    {
+      "etapa_id": "hito_0_etapa_3",
+      "nombre": "Integración NodeODM",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "backend/app/api/routes/reconstruction.py",
+        "backend/app/services/nodeodm_client.py"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "nodeodm_client.py implementado con REST y polling", "completado": false },
+        { "item": "Estrategia de 3 reintentos fallback de NodeODM implementada", "completado": false },
+        { "item": "Endpoint POST /api/reconstruct/{session_id} implementado", "completado": false },
+        { "item": "Prueba de integración exitosa con dataset mínimo", "completado": false },
+        { "item": "Nube de puntos PLY generada en data/processed/", "completado": false }
+      ]
+    }
+  ],
+  "resumen_hito": {
+    "etapas_totales": 3,
+    "etapas_completadas": 0,
+    "porcentaje_avance": 0,
+    "bloqueantes": [],
+    "proxima_etapa": "hito_0_etapa_1 — Configuración Docker Compose base"
+  }
+}

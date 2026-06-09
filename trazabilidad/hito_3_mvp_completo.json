@@ -1,0 +1,80 @@
+{
+  "hito": {
+    "id": "hito_3",
+    "nombre": "MVP Completo",
+    "sprint": "Sprint 5",
+    "fecha_objetivo": "TBD",
+    "criterio_exito": "SPA Vue.js funcional visualizando la malla 3D, pruebas E2E aprobadas, cobertura de código cumpliendo el DoD y el sistema levantando sin fallos mediante Docker Compose.",
+    "estado": "pendiente"
+  },
+  "etapas": [
+    {
+      "etapa_id": "hito_3_etapa_1",
+      "nombre": "Desarrollo del Frontend Vue.js + Three.js",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "frontend/src/components/ImageUploader.vue",
+        "frontend/src/components/PipelineStatus.vue",
+        "frontend/src/components/Viewer3D.vue",
+        "frontend/src/components/VolumeReport.vue",
+        "frontend/src/views/Dashboard.vue",
+        "frontend/src/services/api.js"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "Scaffolding de Vue.js 3 + Vite + Composition API inicializado", "completado": false },
+        { "item": "ImageUploader.vue implementado con drag & drop y validaciones", "completado": false },
+        { "item": "PipelineStatus.vue implementado con barra de progreso y polling", "completado": false },
+        { "item": "Viewer3D.vue implementado con Three.js y OrbitControls para GLB", "completado": false },
+        { "item": "VolumeReport.vue implementado con descarga de reportes JSON/CSV", "completado": false },
+        { "item": "Dashboard.vue integrado e interactivo", "completado": false }
+      ]
+    },
+    {
+      "etapa_id": "hito_3_etapa_2",
+      "nombre": "Estabilización, Cobertura y Cierre",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "backend/tests/e2e/test_full_flow.py",
+        "README.md",
+        "specs/forestvol-mvp/validation-report.md"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "Tests e2e test_full_flow.py pasando en flujo completo", "completado": false },
+        { "item": "Validación de cobertura (backend >= 80%, servicios críticos >= 90%)", "completado": false },
+        { "item": "Verificación de build de producción con docker-compose up --build", "completado": false },
+        { "item": "README.md con instrucciones claras de despliegue, configuración y uso", "completado": false },
+        { "item": "validation-report.md completado con resultados de pruebas", "completado": false },
+        { "item": "Actualización de Aprendizaje.ForestVol.md con aprendizajes finales del ciclo", "completado": false }
+      ]
+    }
+  ],
+  "resumen_hito": {
+    "etapas_totales": 2,
+    "etapas_completadas": 0,
+    "porcentaje_avance": 0,
+    "bloqueantes": [],
+    "proxima_etapa": "hito_3_etapa_1 — Desarrollo del Frontend Vue.js + Three.js"
+  }
+}

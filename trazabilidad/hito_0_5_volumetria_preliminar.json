@@ -1,0 +1,48 @@
+{
+  "hito": {
+    "id": "hito_0_5",
+    "nombre": "Volumetría Preliminar",
+    "sprint": "Sprint 3",
+    "fecha_objetivo": "TBD",
+    "criterio_exito": "Generación de malla watertight (cerrada) mediante Poisson con reparación automática (agujeros < 5%) y exportación GLB.",
+    "estado": "pendiente"
+  },
+  "etapas": [
+    {
+      "etapa_id": "hito_0_5_etapa_1",
+      "nombre": "Generación y Reparación de Malla 3D",
+      "estado": "pendiente",
+      "fecha_completado": null,
+      "partes_proyecto_utilizadas": [
+        "backend/app/api/routes/mesh.py",
+        "backend/app/services/mesh_service.py",
+        "backend/tests/unit/test_mesh_service.py"
+      ],
+      "justificacion": null,
+      "que_se_hizo": null,
+      "estado_resultante": null,
+      "ground_truth_disponible": false,
+      "metricas": {
+        "tiempo_implementacion_min": null,
+        "tests_pasados": null,
+        "errores_encontrados": null,
+        "cobertura_pct": null
+      },
+      "checklist": [
+        { "item": "mesh_service.py implementado con Poisson Surface Reconstruction", "completado": false },
+        { "item": "Estrategia de 2 ciclos de reparación de malla implementada", "completado": false },
+        { "item": "Verificación estricta de watertightness en malla final", "completado": false },
+        { "item": "Escalamiento métrico aplicado a la nube/malla final", "completado": false },
+        { "item": "Exportación de mallas en formatos PLY (interno) y GLB (frontend)", "completado": false },
+        { "item": "Tests unitarios test_mesh_service.py implementados y pasando", "completado": false }
+      ]
+    }
+  ],
+  "resumen_hito": {
+    "etapas_totales": 1,
+    "etapas_completadas": 0,
+    "porcentaje_avance": 0,
+    "bloqueantes": [],
+    "proxima_etapa": "hito_0_5_etapa_1 — Generación y Reparación de Malla 3D"
+  }
+}

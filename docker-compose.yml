@@ -1,0 +1,59 @@
+services:
+  forestvol-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: forestvol-backend
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - ./data:/data
+    environment:
+      - BACKEND_PORT=${BACKEND_PORT:-8000}
+      - NODEODM_PORT=${NODEODM_PORT:-3001}
+      - MIN_IMAGES=${MIN_IMAGES:-10}
+      - MAX_IMAGES=${MAX_IMAGES:-50}
+      - MAX_IMAGE_SIZE_MB=${MAX_IMAGE_SIZE_MB:-20}
+      - MAX_SESSION_SIZE_GB=${MAX_SESSION_SIZE_GB:-1}
+      - UPLOAD_PATH=${UPLOAD_PATH:-data/uploads}
+      - PROCESSED_PATH=${PROCESSED_PATH:-data/processed}
+      - EXPORT_PATH=${EXPORT_PATH:-data/exports}
+      - NODEODM_TIMEOUT_SECONDS=${NODEODM_TIMEOUT_SECONDS:-1800}
+      - CALIBRATION_CONFIDENCE_THRESHOLD=${CALIBRATION_CONFIDENCE_THRESHOLD:-0.90}
+      - UPLOAD_RETENTION_DAYS=${UPLOAD_RETENTION_DAYS:-30}
+      - PROCESSED_RETENTION_DAYS=${PROCESSED_RETENTION_DAYS:-60}
+      - EXPORT_RETENTION_DAYS=${EXPORT_RETENTION_DAYS:-90}
+      - NODEODM_HOST=nodeodm
+    networks:
+      - forestvol-network
+    depends_on:
+      - nodeodm
+    restart: unless-stopped
+
+  forestvol-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: forestvol-frontend
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    environment:
+      - VITE_API_URL=http://localhost:${BACKEND_PORT:-8000}
+    networks:
+      - forestvol-network
+    depends_on:
+      - forestvol-backend
+    restart: unless-stopped
+
+  nodeodm:
+    image: opendronemap/nodeodm:latest
+    container_name: forestvol-nodeodm
+    ports:
+      - "${NODEODM_PORT:-3001}:3000"
+    networks:
+      - forestvol-network
+    restart: unless-stopped
+
+networks:
+  forestvol-network:
+    driver: bridge
