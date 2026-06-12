@@ -52,6 +52,8 @@ services:
       - "${NODEODM_PORT:-3001}:3000"
     networks:
       - forestvol-network
+    volumes:
+      - ./data/nodeodm:/var/www/data
     restart: unless-stopped
 
 networks:

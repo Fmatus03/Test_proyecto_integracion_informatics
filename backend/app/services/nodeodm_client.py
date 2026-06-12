@@ -98,6 +98,7 @@ async def create_task(session_dir: Path) -> str | None:
                     {"name": "skip-orthophoto", "value": True},
                     {"name": "skip-report", "value": True},
                     {"name": "texturing-skip-global-seam-leveling", "value": True},
+                    {"name": "pc-csv", "value": True},
                     {"name": "end-with", "value": "odm_filterpoints"}
                 ]
 
@@ -168,39 +169,27 @@ async def poll_task_status(task_uuid: str) -> TaskStatus:
 
 
 async def download_result(task_uuid: str, session_id: str) -> Path | None:
-    """Download the point cloud output from a completed NodeODM task.
+    """Copy the point cloud output from a completed NodeODM task.
 
-    Saves to data/processed/{session_id}/. Returns the path to the
-    downloaded assets directory, or None on failure.
+    Copies from the shared Docker volume directly to data/processed/{session_id}/.
+    Returns the path to the downloaded assets directory, or None on failure.
     """
     output_dir = Path(PROCESSED_PATH) / session_id
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    try:
-        async with httpx.AsyncClient(timeout=300.0) as client:
-            # Download all assets as a zip
-            response = await client.get(
-                f"{NODEODM_BASE_URL}/task/{task_uuid}/download/all.zip",
-            )
+    # Path where NodeODM's volume is mounted in the backend container
+    nodeodm_task_dir = Path("/data/nodeodm") / task_uuid
+    
+    # The point cloud is generated here when using 'end-with: odm_filterpoints'
+    source_cloud = nodeodm_task_dir / "odm_filterpoints/point_cloud.ply"
+    
+    if source_cloud.exists():
+        dest_cloud = output_dir / "point_cloud.ply"
+        shutil.copy2(source_cloud, dest_cloud)
+        logger.info("NodeODM point cloud copied directly from volume to %s", dest_cloud)
+        return output_dir
 
-            if response.status_code == 200:
-                zip_path = output_dir / "all.zip"
-                zip_path.write_bytes(response.content)
-
-                # Extract zip
-                shutil.unpack_archive(str(zip_path), str(output_dir))
-                zip_path.unlink()  # Clean up zip
-
-                logger.info("NodeODM results downloaded to %s", output_dir)
-                return output_dir
-
-            logger.error(
-                "Failed to download NodeODM results: %s", response.status_code
-            )
-
-    except (httpx.ConnectError, httpx.TimeoutException) as exc:
-        logger.error("Download error for task %s: %s", task_uuid, exc)
-
+    logger.error("Point cloud not found at %s. NodeODM might have failed silently or ended prematurely.", source_cloud)
     return None
 
 
