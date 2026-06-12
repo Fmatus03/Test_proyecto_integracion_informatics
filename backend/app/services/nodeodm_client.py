@@ -87,8 +87,7 @@ async def create_task(session_dir: Path) -> str | None:
                     for f in image_files
                 ]
 
-import json
-
+                import json
                 options = {
                     "feature-quality": "lowest",
                     "pc-quality": "lowest",
