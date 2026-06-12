@@ -93,7 +93,8 @@ async def create_task(session_dir: Path) -> str | None:
                     "pc-quality": "lowest",
                     "depthmap-resolution": 256,
                     "max-concurrency": 2,
-                    "use-fixed-camera-params": True
+                    "use-fixed-camera-params": True,
+                    "texturing-skip-global-seam-leveling": True
                 }
 
                 response = await client.post(
