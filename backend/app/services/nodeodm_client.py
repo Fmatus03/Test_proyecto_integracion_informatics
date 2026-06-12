@@ -88,20 +88,20 @@ async def create_task(session_dir: Path) -> str | None:
                 ]
 
                 import json
-                options = {
-                    "feature-quality": "lowest",
-                    "pc-quality": "lowest",
-                    "depthmap-resolution": 256,
-                    "max-concurrency": 2,
-                    "use-fixed-camera-params": True,
-                    "skip-3dmodel": True,
-                    "skip-orthophoto": True,
-                    "skip-report": True
-                }
+                options_list = [
+                    {"name": "feature-quality", "value": "lowest"},
+                    {"name": "pc-quality", "value": "lowest"},
+                    {"name": "depthmap-resolution", "value": 256},
+                    {"name": "max-concurrency", "value": 2},
+                    {"name": "use-fixed-camera-params", "value": True},
+                    {"name": "skip-3dmodel", "value": True},
+                    {"name": "skip-orthophoto", "value": True},
+                    {"name": "skip-report", "value": True}
+                ]
 
                 response = await client.post(
                     f"{NODEODM_BASE_URL}/task/new",
-                    data={"options": json.dumps(options)},
+                    data={"options": json.dumps(options_list)},
                     files=files,
                 )
 
