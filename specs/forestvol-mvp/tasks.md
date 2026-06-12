@@ -12,8 +12,10 @@
 - [x] Verificación Docker: pendiente (por el usuario)
 
 ## DEV_PHASE 2 - Carga de Imágenes (Hito 0_etapa_2)
-- [ ] Implementar `image_validator.py`
-- [ ] Implementar `POST /api/upload`
+- [x] Implementar `image_validator.py`
+- [x] Implementar `POST /api/upload`
+- [x] Implementar protección contra ataques XSS y Directory Traversal en nombres de archivo
+- [x] Implementar tests unitarios de validación de Magic Bytes
 
 ## DEV_PHASE 3 - Integración NodeODM (Hito 0_etapa_3)
 - [ ] Implementar `nodeodm_client.py`

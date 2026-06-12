@@ -11,17 +11,17 @@
     {
       "etapa_id": "hito_0_etapa_1",
       "nombre": "Configuración Docker Compose base",
-      "estado": "pendiente",
-      "fecha_completado": null,
+      "estado": "completada",
+      "fecha_completado": "2026-06-09T22:36:00Z",
       "partes_proyecto_utilizadas": [
         "docker-compose.yml",
         "backend/Dockerfile",
         "frontend/Dockerfile",
         ".env.example"
       ],
-      "justificacion": null,
-      "que_se_hizo": null,
-      "estado_resultante": null,
+      "justificacion": "El usuario comprobó exitosamente que Docker levanta los tres servicios y NodeODM es accesible desde FastAPI.",
+      "que_se_hizo": "Se creó el scaffolding inicial del proyecto, contenedores y punto de entrada básico de la API.",
+      "estado_resultante": "Infraestructura base funcional y testeable localmente.",
       "ground_truth_disponible": false,
       "metricas": {
         "tiempo_implementacion_min": null,
@@ -35,22 +35,22 @@
         { "item": "docker-compose.yml creado con servicios backend, frontend y nodeodm", "completado": true },
         { "item": "backend/Dockerfile y frontend/Dockerfile creados", "completado": true },
         { "item": "FastAPI inicializado en backend/app/main.py con /health", "completado": true },
-        { "item": "docker-compose up levanta los 3 servicios sin errores", "completado": false }
+        { "item": "docker-compose up levanta los 3 servicios sin errores", "completado": true }
       ]
     },
     {
       "etapa_id": "hito_0_etapa_2",
       "nombre": "Pipeline de carga de imágenes",
-      "estado": "pendiente",
-      "fecha_completado": null,
+      "estado": "completada",
+      "fecha_completado": "2026-06-11T22:11:00Z",
       "partes_proyecto_utilizadas": [
         "backend/app/api/routes/upload.py",
         "backend/app/services/image_validator.py",
         "backend/app/models/schemas.py"
       ],
-      "justificacion": null,
-      "que_se_hizo": null,
-      "estado_resultante": null,
+      "justificacion": "Implementación finalizada del endpoint de upload con validación estricta de Magic Bytes (python-magic), tamaño y formato.",
+      "que_se_hizo": "Se creó el validador, las rutas API y los modelos Pydantic.",
+      "estado_resultante": "API de backend lista para recibir imágenes seguras.",
       "ground_truth_disponible": false,
       "metricas": {
         "tiempo_implementacion_min": null,
@@ -59,11 +59,11 @@
         "cobertura_pct": null
       },
       "checklist": [
-        { "item": "image_validator.py implementado (valida extensión, MIME, tamaño y cantidad)", "completado": false },
-        { "item": "schemas.py implementado con modelos Pydantic v2", "completado": false },
-        { "item": "Endpoint POST /api/upload implementado en upload.py", "completado": false },
-        { "item": "Almacenamiento de imágenes estructurado bajo data/uploads/", "completado": false },
-        { "item": "Tests unitarios test_image_validator.py pasando", "completado": false }
+        { "item": "image_validator.py implementado (valida extensión, MIME, tamaño y cantidad)", "completado": true },
+        { "item": "schemas.py implementado con modelos Pydantic v2", "completado": true },
+        { "item": "Endpoint POST /api/upload implementado en upload.py", "completado": true },
+        { "item": "Almacenamiento de imágenes estructurado bajo data/uploads/", "completado": true },
+        { "item": "Tests unitarios test_image_validator.py pasando", "completado": true }
       ]
     },
     {
@@ -96,9 +96,9 @@
   ],
   "resumen_hito": {
     "etapas_totales": 3,
-    "etapas_completadas": 0,
-    "porcentaje_avance": 0,
+    "etapas_completadas": 2,
+    "porcentaje_avance": 66,
     "bloqueantes": [],
-    "proxima_etapa": "hito_0_etapa_1 — Configuración Docker Compose base"
+    "proxima_etapa": "hito_0_etapa_3 — Pipeline de conexión a NodeODM"
   }
 }

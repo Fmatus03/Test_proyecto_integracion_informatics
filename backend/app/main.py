@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.models.schemas import ErrorResponse, HealthResponse
+from app.api.routes import upload
 
 app = FastAPI(
     title="ForestVol MVP",
@@ -25,6 +26,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(upload.router, prefix="/api")
 
 NODEODM_HOST = os.getenv("NODEODM_HOST", "localhost")
 NODEODM_PORT = os.getenv("NODEODM_PORT", "3001")

@@ -5,8 +5,8 @@
   "status": "running",
   "objective": "Implementar el MVP completo de ForestVol v5.1: pipeline carga→calibración→SfM/MVS→malla→volumen.",
   "product_expected": "Sistema ForestVol ejecutable con docker-compose up, pipeline end-to-end funcional y trazabilidad completa.",
-  "current_phase": "plan_cycle",
-  "current_fase": "DEV_PHASE_1_INFRA",
+  "current_phase": "implement",
+  "current_fase": "DEV_PHASE_3_CALIBRATION",
   "stack": {
     "backend": "Python3.11/FastAPI",
     "calibration": "OpenCV4.9+",
