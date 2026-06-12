@@ -8,7 +8,7 @@
     <div class="metrics-grid">
       <div class="metric-box highlight">
         <span class="label">Volumen Total</span>
-        <span class="value">{{ volume.volume_m3.toFixed(3) }} <small>m³</small></span>
+        <span class="value">{{ volume.volume_m3.toFixed(5) }} <small>m³</small></span>
       </div>
       
       <div class="metric-box">

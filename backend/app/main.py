@@ -37,6 +37,10 @@ app.include_router(reconstruction.router, prefix="/api")
 app.include_router(mesh.router, prefix="/api")
 app.include_router(volume.router, prefix="/api")
 
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/api/results", StaticFiles(directory=os.getenv("PROCESSED_PATH", "data/processed")), name="results")
+
 NODEODM_HOST = os.getenv("NODEODM_HOST", "localhost")
 NODEODM_PORT = os.getenv("NODEODM_PORT", "3001")
 
