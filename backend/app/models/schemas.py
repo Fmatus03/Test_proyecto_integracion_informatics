@@ -125,3 +125,34 @@ class ReconstructionResponse(BaseModel):
     )
 
 
+class MeshResponse(BaseModel):
+    """Response schema for POST /api/mesh/{session_id} endpoint."""
+
+    session_id: str = Field(
+        ...,
+        description="Session identifier",
+        examples=["123e4567-e89b-12d3-a456-426614174000"],
+    )
+    glb_path: str | None = Field(
+        ...,
+        description="Path to the exported GLB model",
+        examples=["data/processed/123e4567/model.glb"],
+    )
+    is_watertight: bool = Field(
+        ...,
+        description="Whether the resulting mesh is perfectly closed without holes",
+        examples=[True],
+    )
+    vertex_count: int = Field(
+        ...,
+        description="Number of vertices in the final mesh",
+        examples=[150000],
+    )
+    face_count: int = Field(
+        ...,
+        description="Number of faces (triangles) in the final mesh",
+        examples=[300000],
+    )
+
+
+

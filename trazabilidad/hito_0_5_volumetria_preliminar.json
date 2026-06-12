@@ -5,22 +5,22 @@
     "sprint": "Sprint 3",
     "fecha_objetivo": "TBD",
     "criterio_exito": "Generación de malla watertight (cerrada) mediante Poisson con reparación automática (agujeros < 5%) y exportación GLB.",
-    "estado": "pendiente"
+    "estado": "completada"
   },
   "etapas": [
     {
       "etapa_id": "hito_0_5_etapa_1",
       "nombre": "Generación y Reparación de Malla 3D",
-      "estado": "pendiente",
-      "fecha_completado": null,
+      "estado": "completada",
+      "fecha_completado": "2026-06-12T05:32:00Z",
       "partes_proyecto_utilizadas": [
         "backend/app/api/routes/mesh.py",
         "backend/app/services/mesh_service.py",
         "backend/tests/unit/test_mesh_service.py"
       ],
-      "justificacion": null,
-      "que_se_hizo": null,
-      "estado_resultante": null,
+      "justificacion": "Se implementó el pipeline de mallado con Open3D (Poisson) y Trimesh (Reparación de agujeros y guardado GLB) permitiendo transformar el Point Cloud en una malla web-ready.",
+      "que_se_hizo": "Creación de mesh_service.py, ruta /api/mesh y tests unitarios usando mallas sintéticas.",
+      "estado_resultante": "El sistema puede generar mallas métricas .glb listas para visualización y cálculo de volumen.",
       "ground_truth_disponible": false,
       "metricas": {
         "tiempo_implementacion_min": null,
@@ -29,20 +29,21 @@
         "cobertura_pct": null
       },
       "checklist": [
-        { "item": "mesh_service.py implementado con Poisson Surface Reconstruction", "completado": false },
-        { "item": "Estrategia de 2 ciclos de reparación de malla implementada", "completado": false },
-        { "item": "Verificación estricta de watertightness en malla final", "completado": false },
-        { "item": "Escalamiento métrico aplicado a la nube/malla final", "completado": false },
-        { "item": "Exportación de mallas en formatos PLY (interno) y GLB (frontend)", "completado": false },
-        { "item": "Tests unitarios test_mesh_service.py implementados y pasando", "completado": false }
+        { "item": "mesh_service.py implementado con Poisson Surface Reconstruction", "completado": true },
+        { "item": "Estrategia de 2 ciclos de reparación de malla implementada", "completado": true },
+        { "item": "Verificación estricta de watertightness en malla final", "completado": true },
+        { "item": "Escalamiento métrico aplicado a la nube/malla final", "completado": true },
+        { "item": "Exportación de mallas en formatos PLY (interno) y GLB (frontend)", "completado": true },
+        { "item": "Tests unitarios test_mesh_service.py implementados y pasando", "completado": true }
       ]
     }
   ],
   "resumen_hito": {
     "etapas_totales": 1,
-    "etapas_completadas": 0,
-    "porcentaje_avance": 0,
+    "etapas_completadas": 1,
+    "porcentaje_avance": 100,
     "bloqueantes": [],
-    "proxima_etapa": "hito_0_5_etapa_1 — Generación y Reparación de Malla 3D"
+    "proxima_etapa": "Hito completado. Próximo: hito_2 — Volumetría Funcional"
   }
 }
+
