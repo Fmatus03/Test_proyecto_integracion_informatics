@@ -116,3 +116,25 @@ async def export_csv(session_id: str):
         media_type="text/csv",
         headers={"Content-Disposition": f"attachment; filename=report_{session_id}.csv"}
     )
+
+
+from fastapi.responses import FileResponse
+
+@router.get(
+    "/results/{session_id}/model.glb",
+    tags=["results"],
+    summary="Download the 3D model",
+)
+async def get_model_glb(session_id: str):
+    """Serve the generated GLB model for the 3D viewer."""
+    glb_path = Path(PROCESSED_PATH) / session_id / "model.glb"
+    if not glb_path.exists():
+        return JSONResponse(
+            status_code=404,
+            content=ErrorResponse(
+                error_code="MODEL_NOT_FOUND",
+                message="3D Model not generated yet",
+            ).model_dump(),
+        )
+    return FileResponse(path=glb_path, media_type="model/gltf-binary", filename="model.glb")
+

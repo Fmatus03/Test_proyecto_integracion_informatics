@@ -11,19 +11,19 @@
     {
       "etapa_id": "hito_3_etapa_1",
       "nombre": "Desarrollo del Frontend Vue.js + Three.js",
-      "estado": "pendiente",
-      "fecha_completado": null,
+      "estado": "completada",
+      "fecha_completado": "2026-06-12T05:54:00Z",
       "partes_proyecto_utilizadas": [
         "frontend/src/components/ImageUploader.vue",
         "frontend/src/components/PipelineStatus.vue",
         "frontend/src/components/Viewer3D.vue",
         "frontend/src/components/VolumeReport.vue",
-        "frontend/src/views/Dashboard.vue",
+        "frontend/src/App.vue",
         "frontend/src/services/api.js"
       ],
-      "justificacion": null,
-      "que_se_hizo": null,
-      "estado_resultante": null,
+      "justificacion": "Se construyó la SPA en Vue 3 consumiendo los endpoints del backend. Implementada la carga de imágenes, vista de progreso, visualización 3D interactiva y descarga de reportes.",
+      "que_se_hizo": "Componentes de Vue 3, integración con Three.js para renderizar la malla GLB, cliente Axios para APIs, estilización Dark Glassmorphism.",
+      "estado_resultante": "Frontend interactivo listo para probar contra el backend.",
       "ground_truth_disponible": false,
       "metricas": {
         "tiempo_implementacion_min": null,
@@ -32,12 +32,12 @@
         "cobertura_pct": null
       },
       "checklist": [
-        { "item": "Scaffolding de Vue.js 3 + Vite + Composition API inicializado", "completado": false },
-        { "item": "ImageUploader.vue implementado con drag & drop y validaciones", "completado": false },
-        { "item": "PipelineStatus.vue implementado con barra de progreso y polling", "completado": false },
-        { "item": "Viewer3D.vue implementado con Three.js y OrbitControls para GLB", "completado": false },
-        { "item": "VolumeReport.vue implementado con descarga de reportes JSON/CSV", "completado": false },
-        { "item": "Dashboard.vue integrado e interactivo", "completado": false }
+        { "item": "Scaffolding de Vue.js 3 + Vite + Composition API inicializado", "completado": true },
+        { "item": "ImageUploader.vue implementado con drag & drop y validaciones", "completado": true },
+        { "item": "PipelineStatus.vue implementado con barra de progreso y polling", "completado": true },
+        { "item": "Viewer3D.vue implementado con Three.js y OrbitControls para GLB", "completado": true },
+        { "item": "VolumeReport.vue implementado con descarga de reportes JSON/CSV", "completado": true },
+        { "item": "Dashboard.vue integrado e interactivo", "completado": true }
       ]
     },
     {
