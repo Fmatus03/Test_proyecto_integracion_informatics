@@ -76,7 +76,14 @@ async def create_task(session_dir: Path) -> str | None:
             async with httpx.AsyncClient(timeout=120.0) as client:
                 # Build multipart form with all images
                 files = [
-                    ("images", (f.name, open(f, "rb"), "image/jpeg"))
+                    (
+                        "images", 
+                        (
+                            f.name, 
+                            open(f, "rb"), 
+                            "image/png" if f.suffix.lower() == ".png" else "image/jpeg"
+                        )
+                    )
                     for f in image_files
                 ]
 
@@ -92,26 +99,18 @@ async def create_task(session_dir: Path) -> str | None:
                 if response.status_code == 200:
                     data = response.json()
                     task_uuid = data.get("uuid")
-                    logger.info(
-                        "NodeODM task created: %s (attempt %d)", task_uuid, attempt
-                    )
+                    print(f"NodeODM task created: {task_uuid}")
                     return task_uuid
 
-                logger.warning(
-                    "NodeODM task creation failed (attempt %d/%d): %s",
-                    attempt, MAX_RETRIES, response.text,
-                )
+                print(f"NodeODM error {response.status_code}: {response.text}")
 
-        except (httpx.ConnectError, httpx.TimeoutException) as exc:
-            logger.warning(
-                "NodeODM connection error (attempt %d/%d): %s",
-                attempt, MAX_RETRIES, exc,
-            )
+        except Exception as exc:
+            print(f"NodeODM exception: {exc}")
 
         if attempt < MAX_RETRIES:
             await asyncio.sleep(RETRY_DELAY_SECONDS)
 
-    logger.error("NodeODM task creation failed after %d attempts", MAX_RETRIES)
+    print("NodeODM task creation failed after all attempts")
     return None
 
 
