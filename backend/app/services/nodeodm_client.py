@@ -87,8 +87,19 @@ async def create_task(session_dir: Path) -> str | None:
                     for f in image_files
                 ]
 
+import json
+
+                options = {
+                    "feature-quality": "lowest",
+                    "pc-quality": "lowest",
+                    "depthmap-resolution": 256,
+                    "max-concurrency": 2,
+                    "use-fixed-camera-params": True
+                }
+
                 response = await client.post(
                     f"{NODEODM_BASE_URL}/task/new",
+                    data={"options": json.dumps(options)},
                     files=files,
                 )
 
