@@ -94,7 +94,9 @@ async def create_task(session_dir: Path) -> str | None:
                     "depthmap-resolution": 256,
                     "max-concurrency": 2,
                     "use-fixed-camera-params": True,
-                    "skip-3dmodel": True
+                    "skip-3dmodel": True,
+                    "skip-orthophoto": True,
+                    "skip-report": True
                 }
 
                 response = await client.post(
