@@ -69,15 +69,15 @@
     {
       "etapa_id": "hito_0_etapa_3",
       "nombre": "Integración NodeODM",
-      "estado": "pendiente",
-      "fecha_completado": null,
+      "estado": "completada",
+      "fecha_completado": "2026-06-12T02:31:00Z",
       "partes_proyecto_utilizadas": [
         "backend/app/api/routes/reconstruction.py",
         "backend/app/services/nodeodm_client.py"
       ],
-      "justificacion": null,
-      "que_se_hizo": null,
-      "estado_resultante": null,
+      "justificacion": "Cliente REST asíncrono con 3 reintentos, polling configurable y descarga de resultados implementado.",
+      "que_se_hizo": "Se creó nodeodm_client.py (create→poll→download), reconstruction.py como ruta API, y ReconstructionResponse como schema Pydantic.",
+      "estado_resultante": "Backend capaz de enviar imágenes a NodeODM, monitorear progreso y descargar nube de puntos.",
       "ground_truth_disponible": false,
       "metricas": {
         "tiempo_implementacion_min": null,
@@ -86,9 +86,9 @@
         "cobertura_pct": null
       },
       "checklist": [
-        { "item": "nodeodm_client.py implementado con REST y polling", "completado": false },
-        { "item": "Estrategia de 3 reintentos fallback de NodeODM implementada", "completado": false },
-        { "item": "Endpoint POST /api/reconstruct/{session_id} implementado", "completado": false },
+        { "item": "nodeodm_client.py implementado con REST y polling", "completado": true },
+        { "item": "Estrategia de 3 reintentos fallback de NodeODM implementada", "completado": true },
+        { "item": "Endpoint POST /api/reconstruct/{session_id} implementado", "completado": true },
         { "item": "Prueba de integración exitosa con dataset mínimo", "completado": false },
         { "item": "Nube de puntos PLY generada en data/processed/", "completado": false }
       ]
@@ -96,9 +96,10 @@
   ],
   "resumen_hito": {
     "etapas_totales": 3,
-    "etapas_completadas": 2,
-    "porcentaje_avance": 66,
-    "bloqueantes": [],
-    "proxima_etapa": "hito_0_etapa_3 — Pipeline de conexión a NodeODM"
+    "etapas_completadas": 3,
+    "porcentaje_avance": 100,
+    "bloqueantes": ["Prueba de integración real requiere dataset de imágenes de dron"],
+    "proxima_etapa": "Hito 0 completado. Próximo: hito_0.5 — Volumetría Preliminar"
   }
 }
+

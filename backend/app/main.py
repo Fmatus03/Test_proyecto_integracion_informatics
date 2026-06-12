@@ -10,6 +10,7 @@ from fastapi.responses import JSONResponse
 from app.models.schemas import ErrorResponse, HealthResponse
 from app.api.routes import upload
 from app.api.routes import calibration
+from app.api.routes import reconstruction
 
 app = FastAPI(
     title="ForestVol MVP",
@@ -30,6 +31,7 @@ app.add_middleware(
 
 app.include_router(upload.router, prefix="/api")
 app.include_router(calibration.router, prefix="/api")
+app.include_router(reconstruction.router, prefix="/api")
 
 NODEODM_HOST = os.getenv("NODEODM_HOST", "localhost")
 NODEODM_PORT = os.getenv("NODEODM_PORT", "3001")

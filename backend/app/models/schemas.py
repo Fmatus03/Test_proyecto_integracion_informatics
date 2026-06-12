@@ -94,3 +94,34 @@ class CalibrationResponse(BaseModel):
         examples=[210.0],
     )
 
+
+class ReconstructionResponse(BaseModel):
+    """Response schema for POST /api/reconstruct/{session_id} endpoint."""
+
+    session_id: str = Field(
+        ...,
+        description="Session identifier",
+        examples=["123e4567-e89b-12d3-a456-426614174000"],
+    )
+    task_uuid: str | None = Field(
+        ...,
+        description="NodeODM task UUID",
+        examples=["abc12345-def6-7890-abcd-ef1234567890"],
+    )
+    status: str = Field(
+        ...,
+        description="Final task status from NodeODM",
+        examples=["COMPLETED"],
+    )
+    success: bool = Field(
+        ...,
+        description="Whether reconstruction completed successfully",
+        examples=[True],
+    )
+    output_dir: str | None = Field(
+        None,
+        description="Path to the downloaded results directory",
+        examples=["data/processed/session-uuid"],
+    )
+
+
