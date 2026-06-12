@@ -12,6 +12,7 @@ from app.api.routes import upload
 from app.api.routes import calibration
 from app.api.routes import reconstruction
 from app.api.routes import mesh
+from app.api.routes import volume
 
 app = FastAPI(
     title="ForestVol MVP",
@@ -34,6 +35,7 @@ app.include_router(upload.router, prefix="/api")
 app.include_router(calibration.router, prefix="/api")
 app.include_router(reconstruction.router, prefix="/api")
 app.include_router(mesh.router, prefix="/api")
+app.include_router(volume.router, prefix="/api")
 
 NODEODM_HOST = os.getenv("NODEODM_HOST", "localhost")
 NODEODM_PORT = os.getenv("NODEODM_PORT", "3001")

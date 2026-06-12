@@ -155,4 +155,38 @@ class MeshResponse(BaseModel):
     )
 
 
+class VolumeInfo(BaseModel):
+    """Volumetric calculation results."""
+
+    volume_m3: float = Field(
+        ...,
+        description="Total volume in cubic meters",
+        examples=[447.6],
+    )
+    length_m: float = Field(
+        ...,
+        description="Bounding box length in meters",
+    )
+    width_m: float = Field(
+        ...,
+        description="Bounding box width in meters",
+    )
+    height_m: float = Field(
+        ...,
+        description="Bounding box height in meters",
+    )
+
+
+class PipelineResultResponse(BaseModel):
+    """Consolidated report for a single session."""
+
+    session_id: str
+    status: str
+    images: int
+    scale_px_per_cm: float | None = None
+    mesh_info: dict | None = None
+    volume: VolumeInfo | None = None
+
+
+
 
