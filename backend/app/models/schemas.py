@@ -63,3 +63,34 @@ class UploadResponse(BaseModel):
         description="Current state of the pipeline",
         examples=["VALIDATED"],
     )
+
+
+class CalibrationResponse(BaseModel):
+    """Response schema for POST /api/calibrate/{session_id} endpoint."""
+
+    session_id: str = Field(
+        ...,
+        description="Session identifier",
+        examples=["123e4567-e89b-12d3-a456-426614174000"],
+    )
+    scale_px_per_cm: float = Field(
+        ...,
+        description="Detected spatial scale in pixels per centimetre",
+        examples=[4.2],
+    )
+    confidence: float = Field(
+        ...,
+        description="Detection confidence score (0.0 to 1.0)",
+        examples=[0.95],
+    )
+    fallback_needed: bool = Field(
+        ...,
+        description="True when the guide was not detected with sufficient confidence",
+        examples=[False],
+    )
+    side_px: float = Field(
+        ...,
+        description="Detected guide side length in pixels",
+        examples=[210.0],
+    )
+
