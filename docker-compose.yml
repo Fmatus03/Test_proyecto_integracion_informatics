@@ -38,7 +38,7 @@ services:
     ports:
       - "${FRONTEND_PORT:-3000}:3000"
     environment:
-      - VITE_API_URL=http://localhost:${BACKEND_PORT:-8000}
+      - VITE_API_URL=http://localhost:${BACKEND_PORT:-8000}/api
     networks:
       - forestvol-network
     depends_on:
