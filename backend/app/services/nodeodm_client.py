@@ -97,7 +97,8 @@ async def create_task(session_dir: Path) -> str | None:
                     {"name": "skip-3dmodel", "value": True},
                     {"name": "skip-orthophoto", "value": True},
                     {"name": "skip-report", "value": True},
-                    {"name": "texturing-skip-global-seam-leveling", "value": True}
+                    {"name": "texturing-skip-global-seam-leveling", "value": True},
+                    {"name": "end-with", "value": "odm_filterpoints"}
                 ]
 
                 response = await client.post(
