@@ -75,9 +75,9 @@ async def upload_images(files: list[UploadFile] = File(...)):
             continue
 
         # Go to end of file to get size, then seek back
-        await file.seek(0, os.SEEK_END)
+        file.file.seek(0, os.SEEK_END)
         file_size = file.file.tell()
-        await file.seek(0)
+        file.file.seek(0)
         
         if file_size > MAX_IMAGE_SIZE_BYTES:
             errors.append(f"File {file.filename} exceeds {MAX_IMAGE_SIZE_BYTES} bytes")
