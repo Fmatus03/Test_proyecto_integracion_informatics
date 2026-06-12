@@ -9,12 +9,12 @@
     <div class="uploader-content" v-if="!isUploading">
       <div class="icon">📁</div>
       <h3>Arrastrá las fotos acá</h3>
-      <p>o hacé clic para seleccionar los archivos JPG del vuelo</p>
+      <p>o hacé clic para seleccionar los archivos JPG/PNG del vuelo</p>
       
       <input 
         type="file" 
         multiple 
-        accept="image/jpeg, image/jpg" 
+        accept="image/jpeg, image/jpg, image/png" 
         class="file-input" 
         @change="onFileSelect"
         ref="fileInput"
@@ -75,9 +75,9 @@ const onFileSelect = (e) => {
 };
 
 const handleFiles = (fileList) => {
-  // Filter only JPEGs as requested
+  // Filter JPEGs and PNGs
   const validFiles = Array.from(fileList).filter(
-    f => f.type === 'image/jpeg' || f.name.toLowerCase().endsWith('.jpg')
+    f => f.type === 'image/jpeg' || f.name.toLowerCase().endsWith('.jpg') || f.type === 'image/png' || f.name.toLowerCase().endsWith('.png')
   );
   files.value = validFiles;
 };
